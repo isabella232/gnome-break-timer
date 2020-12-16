@@ -72,9 +72,16 @@ public class BreakSettingsDialog : Gtk.Dialog {
         );
         settings.bind ("selected-breaks", this.configuration_chooser, "selected-break-ids", SettingsBindFlags.DEFAULT);
 
+        // TODO: Create a stack with a child for each configuration. Switch
+        //       between these instead of showing / hiding widgets.
+
         this.breaks_grid = new FixedSizeGrid ();
         content.add (this.breaks_grid);
         this.breaks_grid.set_orientation (Gtk.Orientation.VERTICAL);
+
+        var lock_toggle = new Gtk.CheckButton.with_label("Lock screen during breaks");
+        content.add(lock_toggle);
+        lock_toggle.show();
 
         content.show_all ();
 

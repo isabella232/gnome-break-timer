@@ -22,7 +22,7 @@ namespace BreakTimer.Settings.Break {
 
 public abstract class BreakSettingsWidget : Gtk.Grid {
     private Gtk.Grid header;
-    private Gtk.Grid details;
+    private Gtk.Box details;
 
     protected BreakSettingsWidget (BreakType break_type, string title, string? description) {
         GLib.Object ();
@@ -54,7 +54,7 @@ public abstract class BreakSettingsWidget : Gtk.Grid {
         // description_label.set_hexpand (true);
         // description_label.set_justify (Gtk.Justification.CENTER);
 
-        this.details = new Gtk.Grid ();
+        this.details = new Gtk.Box (Gtk.Orientation.VERTICAL, 10);
         this.add (this.details);
         this.details.set_margin_start (12);
         this.details.set_halign (Gtk.Align.CENTER);
